@@ -1,9 +1,10 @@
 click==7.1.2
 Flask==1.1.2
+gunicorn==20.0.4
 itsdangerous==1.1.0
 Jinja2==2.11.2
 MarkupSafe==1.1.1
+plotly==4.14.1
+retrying==1.3.3
+six==1.15.0
 Werkzeug==1.0.1
-
-# all dependencies
-# pip install -r requirements.txt
