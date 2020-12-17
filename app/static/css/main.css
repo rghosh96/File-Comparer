@@ -1,0 +1,244 @@
+/* font families */
+/* font-family: 'Bowlby One', cursive;
+font-family: 'Nothing You Could Do', cursive;
+font-family: 'Quicksand', sans-serif; */
+
+body {
+    /* margin: 200px 300px 100px 300px; */
+    background-color: black;
+}
+
+h1 {
+    color: pink;
+    text-align: center;
+    font-family: 'Bowlby One', cursive;
+}
+
+h2 {
+    font-family: 'Nothing You Could Do', cursive;
+    color: rgb(255, 213, 220);
+}
+
+h3 {
+    font-family: 'Quicksand', sans-serif;
+    text-transform: uppercase;
+    color: rgb(226, 226, 226);
+    font-size: 15px;
+    letter-spacing: 2px;
+    margin: 0px 100px 0 100px;
+    text-align: center;
+    line-height: 21px;
+}
+
+p {
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+}
+
+hr {
+    border-color: white;
+}
+
+form {
+    position: relative;
+}
+
+a {
+    color: pink;
+    font-family: 'Quicksand', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 11px;
+    transition: 0.5s;
+    opacity: .5;
+}
+
+a:hover {
+    color: lavender;
+    letter-spacing: 3px;
+    font-size: 13px;
+    text-decoration: none;
+    opacity: 1;
+}
+
+.center {
+    text-align: center;
+}
+
+.content {
+    margin: 200px 300px 50px 300px;
+}
+
+/* neon box */ 
+.box:before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(235deg, pink ,orchid, black,lightblue,lavender);
+    z-index: -1;
+}
+
+.box:after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(235deg, pink,orchid, black,lightblue,lavender);
+    z-index: -2;
+    filter: blur(40px);
+}
+
+.box {
+    position: relative;
+    width: 100%;
+    height: 175px;
+    margin: 50px;
+    transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box:hover {
+    height: 250px;
+}
+
+.foreground {
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%; 
+    display: block;
+    background: black;
+    padding: 50px;
+}
+
+.foreground h2, p {
+    opacity: .2;
+    transition: 0.5s;
+}
+
+.foreground:hover h2, .foreground:hover p, .foreground:hover button, .foreground:hover form {
+    opacity: 1;
+    transition: 0.5s;
+}
+
+.foreground button, form {
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.cards {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+/* cute button */
+button {
+    position: relative;
+    display: in-line block;
+    padding: 15px;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    background: linear-gradient(235deg, pink, orchid,lightblue,lavender);
+}
+
+button:hover {
+    text-decoration: none;
+    color: black;
+}
+
+/* glowing text css */
+.glow {
+    color: black;
+    -webkit-animation: textGlow 2s ease-in-out infinite alternate;
+    -moz-animation: textGlow 2s ease-in-out infinite alternate;
+    animation: textGlow 2s ease-in-out infinite alternate;
+}
+
+/* scrollbar css */
+::-webkit-scrollbar {
+    width: 0;
+}
+
+#scrollPath {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 100%;
+    background: rgba(255, 255, 255, .05)
+}
+
+#progressBar:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 100%;
+    z-index: 10000;
+    background: linear-gradient(to top, #FFC5D3, #FA7594);
+    filter: blur(30px);
+}
+
+#progressBar:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 10px;
+    height: 100%;
+    z-index: 10000;
+    background: linear-gradient(to top, #FFC5D3, #FA7594);
+    filter: blur(30px);
+}
+
+#progressBar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10px;
+    z-index: 10000;
+    background: linear-gradient(to top, #FFC5D3, #FA7594);
+    animation: responsiveScroll 5s linear infinite;
+}
+
+
+/* animations */
+@keyframes responsiveScroll {
+    0%, 100% {
+        filter: hue-rotate(0deg)
+    }
+    50% {
+        filter: hue-rotate(360deg)
+    }
+}
+
+@keyframes textGlow {
+    0% {text-shadow: 0 0 10px #BFB3FF, 0 0 10px #FFCFA3, 0 0 10px #BFB3FF, 0 0 10px #82C7FF}
+    25% {text-shadow: 0 0 10px #9e968d, 0 0 10px #D7FFDA, 0 0 10px #FFE8FF, 0 0 10px #FFCFA3}
+    50% {text-shadow: 0 0 10px #D7FFDA, 0 0 10px #FFE8FF, 0 0 10px #BFB3FF, 0 0 10px #82C7FF}
+    75% {text-shadow: 0 0 10px #FFE8FF, 0 0 10px #D7FFDA, 0 0 10px #FFCFA3, 0 0 10px #82C7FF}
+    100%{text-shadow: 0 0 10px #82C7FF, 0 0 10px #FFE8FF, 0 0 10px #FFE8FF, 0 0 10px #BFB3FF}
+}
+
+@media only screen and (max-width: 400px) {
+    .content{
+      margin: 10px;; /* The width is 100%, when the viewport is 800px or smaller */
+    }
+    p {
+        font-size: 11px;
+    }
+  }

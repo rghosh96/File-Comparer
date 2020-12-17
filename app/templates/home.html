@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Nothing+You+Could+Do&family=Quicksand&display=swap" rel="stylesheet">
+
+    <!-- plotly -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- jinja syntax with flask url function -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">  
+    
+    <title>file comparer</title>
+  </head>
+  <body>
+    <div id="progressBar"></div>
+    <div id="scrollPath"></div>
+    <div class="content">
+      <h1 class="display-3 glow" id="text">file comparer</h1>
+        <h3>
+          a python flask web application. integrated with a python script to upload two files to compare line by line using a plotly table to display results
+          in a user-friendly & readable way.
+        </h3>
+
+        <div class="cards">
+          <div class="box">
+            <div class="foreground">
+              <h2>upload text file one</h2>
+              {% if file1 %}
+                <a href="{{ url_for('static', filename='../static/files/file1.txt' ) }}">view file 1</a>
+              {% else %}
+                <p>no file currently uploaded ..</p>
+              {%  endif %}
+              <br/>
+              <br/>
+              <form method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                  <input type="file" onchange="form.submit()" class="custom-file-input" name="file1" id="file1">
+                  <label class="custom-file-label" for="file1">upload file ...</label>
+                </div>
+              </form>
+              <br/>
+            </div>
+          </div>
+  
+          <br/>
+           
+          <div class="box">
+            <div class="foreground">
+              <h2>upload text file two</h2>
+              {% if file2 %}
+                <a href="{{ url_for('static', filename='../static/files/file2.txt' ) }}">view file 2</a>
+              {% else %}
+                <p>no file currently uploaded ..</p>
+              {%  endif %}
+            <br/>
+            <br/>
+            <form action="/" method="POST" enctype="multipart/form-data">
+              <div class="form-group">
+                <input type="file" onchange="form.submit()" class="custom-file-input" name="file2" id="file2">
+                <label class="custom-file-label" for="file2">upload file ...</label>
+              </div>
+            </form>
+            <br/>
+          </div>
+          </div>
+        </div>
+       
+     
+        <hr/>
+        <br/>
+        <h1 class="glow">result</h1>
+        <div class="chart" id="bargraph">
+          <script>
+                var graphs = {{table | safe}};
+                Plotly.plot('bargraph',graphs,{});      
+          </script>
+      </div>
+        <h1 class="glow">about this web app</h1>
+        <div class="iconContainer">
+          <div class="icon"></div>
+          <div class="icon"></div>
+          <div class="icon"></div>
+        </div>
+    </div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <!-- import js -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+
+
+<!-- Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a> -->

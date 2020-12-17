@@ -1,0 +1,4 @@
+welcome to homework 1
+! appears in the following string: Hi Everyone!
+e
+H
