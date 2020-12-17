@@ -9,6 +9,8 @@ An file comparer web app using python flask as the web app framework, python to 
 4. Export Flask app: `export FLASK_APP=run.py`
 5. Run web app: `python3 run.py`
 
+Now live on heroku! https://file-comparer.herokuapp.com
+
 ### Screenshot:
 ![enter image description here](https://i.imgur.com/TF386G7.png)
 
